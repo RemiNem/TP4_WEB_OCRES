@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
 function App() {
   return (
@@ -21,5 +22,15 @@ function App() {
     </div>
   );
 }
+
+class profile extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = { 
+      name: "default",
+    };
+  }
+}
+
 
 export default App;
