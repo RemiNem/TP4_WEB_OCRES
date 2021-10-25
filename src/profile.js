@@ -6,50 +6,44 @@ import Details from './Details.js';
 export default class profile extends React.Component{
     constructor(props){
       super(props);
-      this.state = { 
+      this.state = { profileno : "1"
         
       };
     }
 
-    profileswitch(id){
-      switch(id){
-          case 1:
-              this.setState({fname : "Jeanne"});
-              this.setState({birth : "06/01"});
-              this.setState({img : "empty"});
-              break;
-          case 2:
-              this.setState({fname : "Martine"});
-              this.setState({birth : "06/01"});
-              this.setState({img : "empty"});
-              break;
-          case 3:
-              this.setState({fname : "Claude"});
-              this.setState({birth : "06/01"});
-              this.setState({img : "empty"});
-              break;
-          default :
-              this.setState({fname : "Default"});
-              this.setState({birth : "01/01"});
-              this.setState({img : "empty"});
-              break;
-      }
-  }
+    
 
     handleClick(id){
-
-      this.profileswitch(id)
-
+      this.setState({profileno : id});
     }
 
-    render() {
+    RenderDetails(){
+      return (
+        <div>
+          <Details profileno = {this.state.profileno} />
+
+        </div>
+      );
+    }
+
+    render(){
         return(
+          <div className = "container2">
+
+          <p>
+            <button onClick={() => { this.handleClick(1); } }>Jeanne</button>
+            <button onClick={() => { this.handleClick(2); } }>Martine</button>
+            <button onClick={() => { this.handleClick(3); } }>Claude</button>
+
+            <div>you clicked profile no : {this.state.profileno}</div>
+            
+          </p>
+          
+          {this.RenderDetails}
+
+          </div>
         
-      <p>
-            <button onClick={() => { this.handleClick('1'); } }>Jeanne</button>
-            <button onClick={() => { this.handleClick('2'); } }>Martine</button>
-            <button onClick={() => { this.handleClick('3'); } }>Claude</button>
-          </p><Details value=this.props />
+          
 
 
         );
